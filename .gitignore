@@ -1,0 +1,4 @@
+*.tgz
+SDL2*tar.gz
+SDL2*/
+SDL-x86_64-w64-mingw32/
