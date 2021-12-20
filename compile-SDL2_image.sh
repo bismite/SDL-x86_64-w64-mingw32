@@ -10,7 +10,6 @@ tar xf download/${SDL2_IMAGE}.tar.gz -C /tmp
   cd /tmp/${SDL2_IMAGE} ;
   x86_64-w64-mingw32-gcc -Wall -O3 -DNDEBUG -DLOAD_PNG -DLOAD_PNG_DYNAMIC="\"libpng.dll\"" -c *.c -I ${PREFIX}/include -I ${PREFIX}/include/SDL2
   x86_64-w64-mingw32-ar rcs libSDL2_image.a *.o
-  x86_64-w64-mingw32-strip libSDL2_image.a
   x86_64-w64-mingw32-gcc -shared -o SDL2_image.dll *.o -L ${PREFIX}/bin -L ${PREFIX}/lib -lSDL2
   x86_64-w64-mingw32-strip SDL2_image.dll
   cp SDL2_image.dll ${PREFIX}/bin/
