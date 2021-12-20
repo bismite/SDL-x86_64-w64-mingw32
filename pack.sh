@@ -19,4 +19,4 @@ LOC=$(pwd)/build
 )
 cp -R tmp/licenses/* ./build/licenses/
 
-tar czf SDL-x86_64-w64-mingw32.tgz build/
+tar czf SDL-x86_64-w64-mingw32.tgz -C build bin lib include licenses
