@@ -1,4 +1,5 @@
-*.tgz
-SDL2*tar.gz
-SDL2*/
-SDL-x86_64-w64-mingw32/
+SDL-x86_64-w64-mingw32.tgz
+build/
+build-static/
+tmp/
+download/
