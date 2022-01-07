@@ -1,4 +1,4 @@
-name: Build Release
+name: Build SDL
 on:
   push:
     tags:
@@ -11,14 +11,19 @@ jobs:
         run: sudo apt-get install mingw-w64
       - name: Check out repository code
         uses: actions/checkout@v2
-      - run: ./download.sh
-      - run: ./make.sh
-      - run: ./pack.sh
+      - run: ./download-sdl.sh
+      - run: mkdir -p tmp/bin tmp/include tmp/lib tmp/licenses
+      - run: ./zlib.sh
+      - run: ./libpng.sh
+      - run: ./SDL2.sh
+      - run: ./SDL2_image.sh
+      - run: ./SDL2_mixer.sh
+      - run: ./pack-sdl.sh
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: SDL-x86_64-w64-mingw32.tgz
+          file: tmp/SDL-x86_64-w64-mingw32.tgz
           asset_name: SDL-x86_64-w64-mingw32.tgz
           tag: ${{ github.ref }}
           overwrite: true
