@@ -11,7 +11,7 @@ jobs:
         run: sudo apt-get install mingw-w64
       - name: Check out repository code
         uses: actions/checkout@v2
-      - run: ./download.sh
+      - run: ./download-sdl.sh
       - run: mkdir -p tmp/bin tmp/include tmp/lib tmp/licenses
       - run: ./zlib.sh
       - run: ./libpng.sh
